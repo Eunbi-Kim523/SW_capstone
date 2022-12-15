@@ -11,8 +11,8 @@
  모델의 구조 및 파라미터를 변경해가며 성능을 향상시키기 위한 실험 과정을 거쳤고 그 결과 8개의 feature(month(월), day(일), week_day(요일), snap_CA(특별 이벤트), store_id, category_id, department_id, item_id)를 input으로 활용하고 2개의 TCN layer와 Dense layer로 구성된 모델이 가장 좋은 성능을 기록하였다. 모델의 activation function으로는 ReLU, optimizer로는 Adam을 사용하였으며 train loss function = MSE, batch_size = 1000, epoch = 3, dropout = 0으로 설정하였다.
 Train loss = 4.7873, Validation loss = 4.0539, test set을 입력하여 예측값을 도출한 결과 MSE = 5.805, R2 score = 0.551, MAE = 1.218 가장 중점이 되는 성능 지표인 RMSSE = 0.432로 나타났다.
 
-![image](https://user-images.githubusercontent.com/76906582/207890742-ee34ab45-c5bf-4369-a6eb-51d9d0695ee0.png)
-![image](https://user-images.githubusercontent.com/76906582/207890988-c2c5a320-eff1-4063-8a03-5d388d892c1a.png)
+<p align="center">![image](https://user-images.githubusercontent.com/76906582/207890742-ee34ab45-c5bf-4369-a6eb-51d9d0695ee0.png)</p>
+<p align="center">![image](https://user-images.githubusercontent.com/76906582/207890988-c2c5a320-eff1-4063-8a03-5d388d892c1a.png)</p>
 
 ## 5. 기대효과 및 결론
  해당 과제의 TCN 예측 모델은 Walmart 매장별 상품 수요예측을 목적으로 구축되었기 때문에 Walmart와 같은 기업의 수요예측 분야에서 활용될 수 있을 것이다. 특히 모델의 입력 데이터로 매우 기본적인 feature만을 사용하므로 제공 가능한 정보가 한정적인 환경에서도 활용 가능할 것이라 생각한다. 
