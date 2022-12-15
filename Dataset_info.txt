@@ -1,0 +1,4 @@
+Raw data download link: https://www.kaggle.com/competitions/m5-forecasting-accuracy/data
+Preprocessed data : https://drive.google.com/file/d/1Hb7FazoyhGMoQp6MSw8SSMmzK7mJjI5K/view?usp=sharing
+
+dataset의 용량이 크기 때문에 파일 대신 링크로 대체
