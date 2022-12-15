@@ -7,7 +7,8 @@
  본 과제는 M5 Competition에서 주어진 calendar.csv, sales_train_evalution.csv, sell_price.csv 파일을 전처리하여 활용하였다. 또한, 활용 기법인 TCN(Temporal Convolutional Network)이 딥러닝 모델이기 때문에 모델 학습 및 평가에 많은 시간이 소요될 것을 고려하여 활용 데이터의 범위를 10개 store 중 CA_1 Store 하나로 한정하여 진행되었다. 구체적으로 Python pandas, numpy 라이브러리를 활용하여 전처리를 진행하였다. 3가지 데이터셋에 분산된 정보를 하나의 파일로 결합하고 날짜를 기반으로 year(연), month(월), day(일), week_day(요일) 컬럼을 새롭게 생성하였다. 또한, Sales 데이터를 활용하여 추가로 분석에 사용할 수 있는 지난 특정 기간(7일, 28일, 60일, 90일, 180일) 동안의 판매량 평균 및 표준편차를 구하여 컬럼을 추가 구성하였다.
 ## 3. 모델 설계 및 학습
  Keras의 TCN 라이브러리를 활용하여 모델을 구축하였다. 모델의 Input layer, Convolution layer, Dense layer, Output layer를 순차적으로 구성하여 모델을 설계하고 3,049개 아이템의 d_1부터 d_1885까지의 1,885일간의 데이터를 Train set, d_1886부터 d_1913까지의 28일간의 데이터를 Validation set으로 하여 모델을 학습시켰다. 그 후 d_1914부터 d_1941까지의 Test set 예측을 수행하고 RMSSE 값을 도출하여 성능을 평가한다. 모든 모델 구현 및 학습 과정은 Google Colaboratory 환경에서 수행되었다.
- ![image](https://user-images.githubusercontent.com/76906582/207916052-cc70a3a8-9c31-4212-8c2c-79f7820efd31.png)
+
+![image](https://user-images.githubusercontent.com/76906582/207916052-cc70a3a8-9c31-4212-8c2c-79f7820efd31.png)
 
 ## 4. 수행 결과
  모델의 구조 및 파라미터를 변경해가며 성능을 향상시키기 위한 실험 과정을 거쳤고 그 결과 8개의 feature(month(월), day(일), week_day(요일), snap_CA(특별 이벤트), store_id, category_id, department_id, item_id)를 input으로 활용하고 2개의 TCN layer와 Dense layer로 구성된 모델이 가장 좋은 성능을 기록하였다. 모델의 activation function으로는 ReLU, optimizer로는 Adam을 사용하였으며 train loss function = MSE, batch_size = 1000, epoch = 3, dropout = 0으로 설정하였다.
