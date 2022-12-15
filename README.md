@@ -8,7 +8,7 @@
 ## 3. 모델 설계 및 학습
  Keras의 TCN 라이브러리를 활용하여 모델을 구축하였다. 모델의 Input layer, Convolution layer, Dense layer, Output layer를 순차적으로 구성하여 모델을 설계하고 3,049개 아이템의 d_1부터 d_1885까지의 1,885일간의 데이터를 Train set, d_1886부터 d_1913까지의 28일간의 데이터를 Validation set으로 하여 모델을 학습시켰다. 그 후 d_1914부터 d_1941까지의 Test set 예측을 수행하고 RMSSE 값을 도출하여 성능을 평가한다. 모든 모델 구현 및 학습 과정은 Google Colaboratory 환경에서 수행되었다.
 
-![image](https://user-images.githubusercontent.com/76906582/207917145-370b863f-d4aa-4652-9651-15124189ba80.png)
+![image](https://user-images.githubusercontent.com/76906582/207917649-e87b6bfa-93a2-46cf-a0c0-1d58c7d2ded1.png)
 
 ## 4. 수행 결과
  모델의 구조 및 파라미터를 변경해가며 성능을 향상시키기 위한 실험 과정을 거쳤고 그 결과 8개의 feature(month(월), day(일), week_day(요일), snap_CA(특별 이벤트), store_id, category_id, department_id, item_id)를 input으로 활용하고 2개의 TCN layer와 Dense layer로 구성된 모델이 가장 좋은 성능을 기록하였다. 모델의 activation function으로는 ReLU, optimizer로는 Adam을 사용하였으며 train loss function = MSE, batch_size = 1000, epoch = 3, dropout = 0으로 설정하였다.
